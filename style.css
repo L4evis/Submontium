@@ -1,0 +1,130 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* výška bez menu */
+  padding-top: 2em;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0f0f0f, #1a1a1a);
+  color: #f1e4d2;
+  font-family: 'Unica One', sans-serif;
+  min-height: 100vh;
+  text-align: center;
+}
+
+
+  nav {
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav a {
+    color: #f1e4d2;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+
+  nav a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .content {
+    max-width: 600px;
+    margin: 3em auto 0;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    opacity: 0.85;
+  }
+
+  img.logo {
+    max-width: 600px;
+    margin-bottom: 1.5em;
+  }
+  img.teaser {
+    max-width: 300px;
+    margin-bottom: 1,5em;
+  }
+
+  h1 {
+    font-size: 4rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px #00000088;
+  }
+.contact-section {
+  margin-top: 4em;
+  padding: 2em;
+  background-color: #1e1c1a;
+  border: 1px solid #5e503f;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 12px #00000055;
+}
+
+.contact-section h2 {
+  font-size: 1.3rem;
+  color: #d4af7f;
+  margin-bottom: 1em;
+  letter-spacing: 0.05em;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+  color: #f1e4d2;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  background-color: #0f0f0f;
+  color: #f1e4d2;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  margin-top: 1.5em;
+  padding: 0.8em 2em;
+  background-color: #d4af7f;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: #f5d7a1;
+  box-shadow: 0 0 12px #d4af7f88;
+  color: #000;
+}
+    code, pre {
+      background-color: #2a2a2a;
+      padding: 0.5em;
+      border-radius: 6px;
+      display: block;
+      white-space: pre-wrap;
+    }

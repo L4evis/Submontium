@@ -43,19 +43,22 @@
       </article>
       <article class="card">
         <h3>Message form</h3>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-          <input type="hidden" name="form-name" value="contact">
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="bot-field"></label>
-          </p>
-          <label for="name">Name</label>
-          <input id="name" name="name" required>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-          <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="5" required></textarea>
-          <button class="btn" type="submit">Send</button>
-          <small class="help">This form is powered by Netlify Forms.</small>
+        <form name="contact" method="POST" action="/success.html"
+      data-netlify="true" netlify-honeypot="bot-field"
+      enctype="application/x-www-form-urlencoded" class="form">
+  <input type="hidden" name="form-name" value="contact">
+  <p style="display:none">
+    <label>Don’t fill this out: <input name="bot-field"></label>
+  </p>
+         <label for="name">Name</label>
+         <input id="name" name="name" required>
+         <label for="email">Email</label>
+         <input id="email" type="email" name="email" required>
+         <label for="msg">Message</label>
+         <textarea id="msg" name="message" rows="5" required></textarea>
+         <input type="hidden" name="subject" value="Submontium.com contact form">
+         <button class="btn" type="submit">Send</button>
+         <small class="help">On successful submit you'll be redirected to /success.html</small>
         </form>
       </article>
     </div>

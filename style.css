@@ -1,130 +1,42 @@
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 60px); /* výška bez menu */
-  padding-top: 2em;
+/* Submontium — game site base theme */
+:root{
+  --bg:#0b0d0f;
+  --panel:#12161b;
+  --text:#e8edf1;
+  --muted:#a6b0b8;
+  --accent:#e3c26b;   /* sand gold */
+  --accent-2:#8ecae6; /* cold sky */
+  --shadow:0 14px 40px rgba(0,0,0,.35);
+  --radius:18px;
 }
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(#0f0f0f, #1a1a1a);
-  color: #f1e4d2;
-  font-family: 'Unica One', sans-serif;
-  min-height: 100vh;
-  text-align: center;
-}
-
-
-  nav {
-    width: 100%;
-    background-color: #1a1a1a;
-    padding: 1rem 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  nav a {
-    color: #f1e4d2;
-    text-decoration: none;
-    margin: 0 1.5rem;
-    font-size: 1.1rem;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
-  }
-
-  nav a:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-  .content {
-    max-width: 600px;
-    margin: 3em auto 0;
-    line-height: 1.6;
-    font-size: 1.2rem;
-    opacity: 0.85;
-  }
-
-  img.logo {
-    max-width: 600px;
-    margin-bottom: 1.5em;
-  }
-  img.teaser {
-    max-width: 300px;
-    margin-bottom: 1,5em;
-  }
-
-  h1 {
-    font-size: 4rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5em;
-    text-shadow: 2px 2px 4px #00000088;
-  }
-.contact-section {
-  margin-top: 4em;
-  padding: 2em;
-  background-color: #1e1c1a;
-  border: 1px solid #5e503f;
-  border-radius: 8px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 12px #00000055;
-}
-
-.contact-section h2 {
-  font-size: 1.3rem;
-  color: #d4af7f;
-  margin-bottom: 1em;
-  letter-spacing: 0.05em;
-}
-
-.contact-form label {
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  font-size: 1rem;
-  color: #f1e4d2;
-  text-align: left;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75em;
-  border: 1px solid #3a3a3a;
-  border-radius: 4px;
-  background-color: #0f0f0f;
-  color: #f1e4d2;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  margin-top: 1.5em;
-  padding: 0.8em 2em;
-  background-color: #d4af7f;
-  color: #1a1a1a;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-
-.contact-form button:hover {
-  background-color: #f5d7a1;
-  box-shadow: 0 0 12px #d4af7f88;
-  color: #000;
-}
-    code, pre {
-      background-color: #2a2a2a;
-      padding: 0.5em;
-      border-radius: 6px;
-      display: block;
-      white-space: pre-wrap;
-    }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{width:min(1100px,92%);margin:0 auto}
+header{position:sticky;top:0;background:rgba(10,12,14,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1d2329;box-shadow:var(--shadow);z-index:10}
+header .brand{display:flex;gap:16px;align-items:center;padding:14px 0}
+.logo{width:44px;height:44px}
+header h1{margin:0;font-size:1.6rem}
+header h1 span{font-weight:300;color:var(--muted)}
+header nav{margin-left:auto;display:flex;gap:16px;align-items:center}
+header nav a{padding:8px 10px;color:var(--text)}
+footer{border-top:1px solid #1d2329;margin-top:30px}
+footer .wrap{padding:18px 0;color:var(--muted);font-size:.95rem}
+.hero{background:linear-gradient(180deg,#14181d, #0e1114);padding:64px 0 46px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hero h2{font-size:2.2rem;margin:.2rem 0 .6rem;color:var(--accent)}
+.hero .lede{max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid #1f2730;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.btn{display:inline-block;background:var(--accent);color:#121417;padding:10px 16px;border-radius:12px;font-weight:600;box-shadow:var(--shadow)}
+.btn:hover{filter:brightness(1.05);text-decoration:none}
+.btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+section{padding:10px 0 26px}
+.meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);margin:.4rem 0 0}
+.alert{background:#111a12;border:1px solid #203120;color:#cfe6d0;border-radius:12px;padding:10px 14px}
+.form{display:grid;gap:12px}
+input, textarea{background:#0f1317;color:var(--text);border:1px solid #1f2730;border-radius:10px;padding:10px 12px;font:inherit}
+label{font-weight:600}
+small.help{color:var(--muted)}
+hr{border:0;border-top:1px solid #1f2730;margin:14px 0}

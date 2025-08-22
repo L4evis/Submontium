@@ -1,36 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submontium</title>
-  <meta name="description" content="Submontium — a new survival racing experience set in the shadow of the mountains.">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Open Graph pro sdílení -->
-  <meta property="og:title" content="Submontium">
-  <meta property="og:description" content="Survival racing experience in the shadow of the mountains.">
-  <meta property="og:image" content="assets/logo.png">
-  <meta property="og:type" content="website">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Submontium — Weatherbound Survival RPG</title>
+  <meta name="description" content="Submontium is a weatherbound survival RPG set in the 1930s — from Mariánské Lázně to Antarctica.">
+  <link rel="icon" href="./media/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="Submontium Logo" class="logo">
-    <h1>Submontium</h1>
-    <h2>RPG · Racing · Exploration</h2>
-  </header>
+<header>
+  <div class="wrap brand">
+    <img class="logo" src="./media/logo.svg" alt="Submontium logo" width="44" height="44" onerror="this.onerror=null;this.src='./media/logo.png'">
+    <div>
+      <h1>Submontium <span>— weatherbound survival</span></h1>
+      <div class="meta">
+        <span>1930s • Art Deco • Single‑player • PC</span>
+      </div>
+    </div>
+    <nav>
+      <a href="./index.html" aria-current="page">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="https://submontium.games" rel="noopener">Studio</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <p>
-      Welcome to <strong>Submontium</strong>, a survival racing adventure set beneath
-      towering mountains and shifting landscapes.
-      Currently in development by <em>Submontium Games</em>.
-    </p>
-    <p><a href="mailto:contact@submontium.com" class="btn">Contact Us</a></p>
-  </main>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h2>Weather decides who survives.</h2>
+      <p class="lede">Expedition from Mariánské Lázně to Antarctica. Science replaces weapons; memory shapes the world. Built in Unreal Engine 5.6.1.</p>
+      <div style="display:flex;gap:12px;margin-top:12px">
+        <a class="btn" href="./about.html">Learn more</a>
+        <a class="btn ghost" href="#" aria-disabled="true">Wishlist (soon)</a>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Submontium Games. All rights reserved.</p>
-  </footer>
+  <section>
+    <div class="wrap grid">
+      <article class="card">
+        <h3>Design Pillars</h3>
+        <ul>
+          <li><strong>Weatherbound</strong> — climate and terrain as the main system.</li>
+          <li><strong>Science over violence</strong> — barometers, sextants, drills, labs.</li>
+          <li><strong>Expedition dramaturgy</strong> — choose ship or airship; race an unseen clock.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Scope</h3>
+        <p>Single‑player narrative survival. From the Mariánské Lázně colonnade to the Antarctic plateau, with a detour through Patagonia.</p>
+        <div class="meta"><span>Engine: UE 5.6.1</span><span>Platform: PC (Steam)</span><span>Status: In development</span></div>
+      </article>
+      <article class="card">
+        <h3>Follow the Studio</h3>
+        <p>Studio site with factsheet and press kit.</p>
+        <a class="btn" href="https://submontium.games">Submontium Games →</a>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>© 2025 Submontium. All rights reserved.</small><br>
+    <small>We do not use any tracking. No personal data or cookies are stored.</small>
+  </div>
+</footer>
 </body>
 </html>

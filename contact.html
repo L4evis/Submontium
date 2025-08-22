@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Submontium</title>
+  <meta name="description" content="Contact Submontium — press and business inquiries.">
+  <link rel="icon" href="./media/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <img class="logo" src="./media/logo.svg" alt="Submontium logo" width="44" height="44" onerror="this.onerror=null;this.src='./media/logo.png'">
+    <div>
+      <h1>Submontium <span>— contact</span></h1>
+    </div>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html" aria-current="page">Contact</a>
+      <a href="https://submontium.games" rel="noopener">Studio</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="lede">Press and business inquiries welcome. On Netlify you can use a simple form — we added a ready setup.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid">
+      <article class="card">
+        <h3>Direct contact</h3>
+        <p><strong>Press:</strong> <a href="mailto:hello@submontium.games">hello@submontium.games</a><br>
+           <strong>Business:</strong> <a href="mailto:hello@submontium.games">hello@submontium.games</a></p>
+        <hr>
+        <p class="alert">Tip: add these addresses to your allow‑list so replies don’t land in spam.</p>
+      </article>
+      <article class="card">
+        <h3>Message form</h3>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+          </p>
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+          <button class="btn" type="submit">Send</button>
+          <small class="help">This form is powered by Netlify Forms.</small>
+        </form>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>© 2025 Submontium. All rights reserved.</small><br>
+    <small>We do not use any tracking. No personal data or cookies are stored.</small>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,93 +1,134 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About — Submontium</title>
-  <meta name="description" content="Devlog About Submontium">
-  <link rel="icon" href="./media/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submontium — DevLog</title>
+  <meta name="description" content="Monthly updates from the development of Submontium — progress, challenges, and insights." />
+  <link rel="stylesheet" href="./style.css"><!-- ← tvůj hlavní CSS -->
+  <style>
+    /* drobný reset pro klikací kartu (button), aby nezasahoval link styling) */
+    button.devlog-item{display:block;width:100%;text-align:left;background:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer}
+    button.devlog-item:focus{outline:2px solid var(--accent-2);outline-offset:4px;border-radius:calc(var(--radius) - 2px)}
+    .devlog-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  </style>
 </head>
 <body>
-<header>
-  <div class="wrap brand">
+
+  <header>
+    <div class="wrap brand">
     <img class="logo" src="./media/logo.svg" alt="Submontium logo" width="44" height="44" onerror="this.onerror=null;this.src='./media/logo.png'">
-    <div>
-      <h1>Submontium <span>— DevLog</span></h1>
-    </div>
-    <nav>
+      <div class="brand">
+        <h1 style="margin:0;">Submontium <span>— DevLog</span></h1>
+      </div>
+      <nav>
       <a href="./index.html">Home</a>
-      <a href="./about.html" aria-current="page">About</a>
+      <a href="./about.html">About</a>
       <a href="./contact.html">Contact</a>
-      <a href="./devlog.html">DevLog</a>
+      <a href="./devlog.html"aria-current="page">DevLog</a>
       <a href="https://submontium.games" rel="noopener">Studio</a>
     </nav>
-  </div>
-</header>
+    </div>
+  </header>
 
-<main>
-  <section class="hero">
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h2>Devlog About Submontium</h2>
+        <p class="lede">Monthly updates from the development of Submontium, with new entries usually arriving at month’s end.</p>
+      </div>
+    </section>
+
+    <!-- Přehled měsíců -->
+    <section>
+      <div class="wrap">
+        <div class="devlog-list" role="list">
+          <button class="card devlog-item" role="listitem" data-key="sep2025" onclick="showDevlog(this)" aria-controls="devlog-detail">
+            <h3 style="margin:.2rem 0 .4rem;">September 2025</h3>
+            <p class="meta">Website · Positioning · Design pillars</p>
+            <p>Updated landing page and About; clarified pillars; aligned tagline with time travel.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detail dole -->
+    <section>
+      <div class="wrap">
+        <div id="devlog-detail" class="card">
+          <em>Click a month above to read the full update.</em>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="wrap">
-      <h2>Devlog About Submontium</h2>
-      <p class="lede"> Monthly updates from the development of Submontium — progress, challenges, and insights.  </p>
+      <hr>
+      <div>© 2025 Submontium. All rights reserved.</div>
+      <div>We do not use any tracking. No personal data or cookies are stored.</div>
     </div>
-  </section>
+  </footer>
 
-  <section>
-    <div class="wrap grid">
-      <article class="card">
-        <h3>September 2025</h3>
-        <p>Start at the Mariánské Lázně colonnade hub. Travel by rail to Hamburg, ship to Buenos Aires, and onward to Patagonia. Then to Antarctica.</p>
-      </article>
-      <article class="card">
-        <h3>Systems</h3>
+  <script>
+    // Obsah devlogu – rozbalí se dole v #devlog-detail
+    const DEVLOG = {
+      sep2025: `
+        <h3>September 2025 — Full Update</h3>
+        <p class="meta">Website · Positioning · Design pillars</p>
+        <p>We shipped the updated landing page and rewrote key messaging to reflect the game’s
+        direction: Mariánské Lázně as the hub; Antarctica as the constant; time travel as the
+        signature; science over violence; and expedition dramaturgy grounded in chemistry
+        (electron shells, energy levels, entropy).</p>
         <ul>
-          <li>Weather forecasting and planning.</li>
-          <li>Terrain deformation with Chaos Flesh on snow and ice.</li>
-          <li>Vehicles with Chaos Vehicles.</li>
-          <li>Non‑lethal toolkit: instruments, labs, drills, survival engineering.</li>
+          <li>New headline/tagline and About page tone.</li>
+          <li>Design pillars: Temporal navigation · Science over violence · Expedition dramaturgy.</li>
+          <li>Tech: Substrate materials + consistent texel density for hero assets.</li>
         </ul>
-      </article>
-      <article class="card">
-        <h3>Tech</h3>
-        <p>Built with Unreal Engine, Blender, and Mari. Realistic stylization and consistent texel density for hero assets.</p>
-      </article>
-    </div>
-  </section>
-  <section id="devlog" style="max-width: var(--max); margin: 4rem auto; padding: 0 1rem;">
-  <h2 style="font-family: Cinzel, serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--gold);">
-    Devlog
-  </h2>
-  <p style="color: var(--muted); margin-bottom: 2rem;">
-    Monthly updates from the development of Submontium — progress, challenges, and insights.
-  </p>
+        <p>Next: prepare the core vertical slice in Unreal Engine 5.6</p>
+      `,
+      oct2025: `
+        <h3>October 2025 — Full Update</h3>
+        <p class="meta">VFX · Niagara · Substrate</p>
+        <p>First playable of time-travel VFX. Introduced <code>UnderstandingScore</code> and
+        <code>StabilityIndex</code> feeding Niagara User Parameters and Substrate materials to morph visuals
+        and stability in real time.</p>
+        <ul>
+          <li>Temporal lensing + refraction layers with Substrate.</li>
+          <li>Local post-process via custom depth/stencil; minimal chromatic aberration.</li>
+          <li>Early Chaos Flesh hooks for snow/ice imprint during jumps.</li>
+        </ul>
+        <p>Next: profiling + content lock for the first expedition beat.</p>
+      `,
+      nov2025: `
+        <h3>November 2025 — Full Update</h3>
+        <p class="meta">Vehicles · Hub · Performance</p>
+        <p>Integrated Chaos Vehicles (ground rigs + airship mock). Linked Antarctic scientific area
+        with the Mariánské Lázně hub loop. Tightened the Blender → Mari → Unreal texel-density workflow.</p>
+        <ul>
+          <li>Vehicle handling (ice traction, cold-start behavior).</li>
+          <li>Hub flow: launch expedition, return, unlock routes via chemistry mastery.</li>
+          <li>Exposed <code>StabilityIndex</code> to a debug UI for VFX tuning.</li>
+        </ul>
+        <p>Next: milestone build with a short, replayable time-travel encounter.</p>
+      `
+    };
 
-  <!-- Jeden příspěvek -->
-  <article style="background: var(--bg-2); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 1.5rem;">
-    <h3 style="margin-top:0; font-size:1.2rem; color: var(--acc);">
-      September 2025 — First pillars on the website
-    </h3>
-    <p>
-      We launched the updated landing page, clarified our design pillars (temporal navigation,
-      science over violence, expedition dramaturgy), and aligned tagline with time-travel elements.
-      Next milestone: preparing core vertical slice in Unreal Engine 5.6.1.
-    </p>
-  </article>
+    function showDevlog(el){
+      const key = (typeof el === 'string') ? el : el.getAttribute('data-key');
+      const box = document.getElementById('devlog-detail');
+      box.innerHTML = DEVLOG[key] || '<p>Nothing here yet.</p>';
+      history.replaceState(null, '', '#' + key);
+      box.scrollIntoView({behavior:'smooth', block:'start'});
+    }
 
-  <!-- Další příspěvky budou přibývat pod sebe -->
-  <!--
-  <article>…</article>
-  -->
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <small>© 2025 Submontium. All rights reserved.</small><br>
-    <small> We do not use any tracking. No personal data or cookies are stored.</small>
-  </div>
-</footer>
-<script data-goatcounter="https://submontium.goatcounter.com/count"
+    // podpora deep-linku: /devlog.html#sep2025
+    window.addEventListener('DOMContentLoaded', ()=>{
+      const hash = location.hash.replace('#','');
+      if(hash && DEVLOG[hash]){ showDevlog(hash); }
+    });
+  </script>
+  <script data-goatcounter="https://submontium.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

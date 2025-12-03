@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contact — Submontium</title>
-  <meta name="description" content="Contact Submontium — press and business inquiries.">
+  <meta name="description" content="Contact Submontium — press, publishing, and business inquiries.">
   <link rel="icon" href="./media/favicon.ico" sizes="any">
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -29,7 +29,7 @@
   <section class="hero">
     <div class="wrap">
       <h2>Get in touch</h2>
-      <p class="lede">Press and business inquiries welcome. On Netlify you can use a simple form — we added a ready setup.</p>
+      <p class="lede">Press, publishing, and business inquiries are welcome. You can reach us directly by email or through the form below.</p>
     </div>
   </section>
 
@@ -38,28 +38,29 @@
       <article class="card">
         <h3>Direct contact</h3>
         <p><strong>Press:</strong> <a href="mailto:hello@submontium.games">hello@submontium.games</a><br>
-           <strong>Business:</strong> <a href="mailto:hello@submontium.games">hello@submontium.games</a></p>
+           <strong>Business / Publishing:</strong> <a href="mailto:hello@submontium.games">hello@submontium.games</a></p>
         <hr>
-        <p class="alert">Tip: add this address to your allow‑list so replies don’t land in spam.</p>
+        <p class="alert">Tip: adding this address to your allow-list can help prevent replies from landing in spam.</p>
       </article>
+
       <article class="card">
         <h3>Message form</h3>
         <form name="contact" method="POST" action="/success.html"
-      data-netlify="true" netlify-honeypot="bot-field"
-      enctype="application/x-www-form-urlencoded" class="form">
-  <input type="hidden" name="form-name" value="contact">
-  <p style="display:none">
-    <label>Don’t fill this out: <input name="bot-field"></label>
-  </p>
-         <label for="name">Name</label>
-         <input id="name" name="name" required>
-         <label for="email">Email</label>
-         <input id="email" type="email" name="email" required>
-         <label for="msg">Message</label>
-         <textarea id="msg" name="message" rows="5" required></textarea>
-         <input type="hidden" name="subject" value="Submontium.com contact form">
-         <button class="btn" type="submit">Send</button>
-         <small class="help">On successful submit you'll be redirected to /success.html</small>
+              data-netlify="true" netlify-honeypot="bot-field"
+              enctype="application/x-www-form-urlencoded" class="form">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+          </p>
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+          <input type="hidden" name="subject" value="Submontium.com contact form">
+          <button class="btn" type="submit">Send</button>
+          <small class="help">On successful submit you'll be redirected to /success.html</small>
         </form>
       </article>
     </div>

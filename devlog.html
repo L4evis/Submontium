@@ -59,12 +59,20 @@
             <p class="meta">Prototype · Pipeline · Interaction</p>
             <p>Early lab prototype in Unreal, basic interaction loop, and updated Blender → Marmoset → Mari → UE workflow.</p>
           </button>
-		   <button class="card devlog-item" role="listitem" data-key="dec2025" onclick="showDevlog(this)" aria-controls="devlog-detail">
+		  
+		  <button class="card devlog-item" role="listitem" data-key="dec2025" onclick="showDevlog(this)" aria-controls="devlog-detail">
             <h3 style="margin:.2rem 0 .4rem;">December 2025</h3>
             <p class="meta">Prototype · First-person · Interaction</p>
             <p>First playable interior space, tactile object interaction, and lighting-driven mood exploration.</p>
+		  </button>
+		
+      	  <button class="card devlog-item" role="listitem" data-key="jan2026" onclick="showDevlog(this)" aria-controls="devlog-detail">
+            <h3 style="margin:.2rem 0 .4rem;">January 2026</h3>
+            <p class="meta">Production · Environment · Lighting · Pipeline</p>
+            <p>Lighting validation, first-person scale testing, and workflow consolidation for the initial interior vertical slice.</p>
           </button>
-        </div>
+        
+		</div>
       </div>
     </section>
 
@@ -77,6 +85,19 @@
       </div>
     </section>
   </main>
+
+
+  <!-- Lightbox for DevLog images -->
+  <dialog id="lb" class="lightbox" aria-label="Image preview">
+    <div class="lb-wrap">
+      <div class="lb-top">
+        <p class="lb-title" id="lb-title">Preview</p>
+        <button class="lb-close" type="button" onclick="closeLightbox()">Close</button>
+      </div>
+      <img id="lb-img" src="" alt="">
+      <p class="lb-caption" id="lb-caption"></p>
+    </div>
+  </dialog>
 
   <footer>
     <div class="wrap">
@@ -117,6 +138,7 @@
       nov2025: `
         <h3>November 2025 - Lab Prototype and Pipeline</h3>
         <p class="meta">Prototype · Pipeline · Interaction</p>
+
         <p>November was about touching the game: moving from documents into a very early, but tangible, first-person prototype.</p>
         <ul>
           <li>Built an initial laboratory slice in Unreal Engine 5.6: a small interior with core tools, furnaces, and basic interaction.</li>
@@ -129,8 +151,7 @@
 	  dec2025: `
          <h3>December 2025 – First Contact</h3>
          <p class="meta">Prototype · First-person · Interaction</p>
-
-          <p>
+         <p>
            December was about crossing a quiet but important threshold: 
           Submontium stopped being something you read about and started being something you stand inside.
           </p>
@@ -152,8 +173,110 @@
          <p>
          Submontium is still early, but December is where it began to behave like a game rather than a concept.
         </p>
+      `,
+	  jan2026: `
+         <h3>January 2026 - Taking Measure</h3>
+         <p class="meta">Production · Environment · Lighting · Pipeline</p>
+
+        <div class="devlog-media" aria-label="Images for this update">
+          <figure>
+            <img
+              src="./media/devlog/jan2026-01-thumb.webp"
+              data-full="./media/devlog/jan2026-01.webp"
+              data-title="JAN 2026"
+              data-caption="Lighting validation, single practical light source and glass response."
+              alt="DevLog image 1"
+              loading="lazy"
+              onclick="openLightbox(this)"
+            >
+            <figcaption>Caption #1</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="./media/devlog/jan2026-02-thumb.webp"
+              data-full="./media/devlog/jan2026-02.webp"
+              data-title="JAN 2026 #2"
+              data-caption=Interaction scale test, light source as focal point."
+              alt="DevLog image 2"
+              loading="lazy"
+              onclick="openLightbox(this)"
+            >
+            <figcaption>Caption #2</figcaption>
+          </figure>
+        </div>
+
+
+
+          <p>
+          January was about staying inside that first space and listening carefully to what it revealed.
+          With the initial interior playable, the focus shifted from creation to validation - understanding which decisions hold up under prolonged observation and first-person presence.
+          </p>
+
+         <ul>
+         <li>Validated lighting as the primary carrier of mood and readability, refining contrast, falloff, and exposure rather than adding new sources.</li>
+         <li>Tested first-person scale and proximity through repeated interaction with familiar objects, revealing subtle proportion and spacing issues.</li>
+         <li>Refined material response directly in-engine, prioritizing how surfaces behave under light over isolated texture quality.</li>
+         <li>Consolidated the environment workflow to reduce iteration friction and ensure consistency across assets.</li>
+         </ul>
+
+         <p>
+         January was less about moving forward and more about holding position.
+         Repeating actions, revisiting the same space, and allowing small inconsistencies to surface naturally
+         </p>
+
+         <p>
+        This process confirmed which foundations are stable - and which still demand attention - before the project expands further.
+        </p>
       `
     };
+
+    
+    // --- DevLog image lightbox ---
+    function openLightbox(imgEl){
+      const dlg = document.getElementById('lb');
+      const big = imgEl.getAttribute('data-full') || imgEl.src;
+      const caption = imgEl.getAttribute('data-caption') || imgEl.alt || '';
+      const title = imgEl.getAttribute('data-title') || 'Preview';
+
+      const lbImg = document.getElementById('lb-img');
+      const lbCap = document.getElementById('lb-caption');
+      const lbTitle = document.getElementById('lb-title');
+
+      lbImg.src = big;
+      lbImg.alt = caption || 'Preview';
+      lbCap.textContent = caption;
+      lbTitle.textContent = title;
+
+      if(typeof dlg.showModal === 'function'){
+        dlg.showModal();
+      }else{
+        // Fallback: open image in new tab if <dialog> unsupported
+        window.open(big, '_blank', 'noopener');
+      }
+    }
+
+    function closeLightbox(){
+      const dlg = document.getElementById('lb');
+      if(dlg && dlg.open){ dlg.close(); }
+    }
+
+    // Close on click outside image
+    window.addEventListener('click', (e)=>{
+      const dlg = document.getElementById('lb');
+      if(!dlg || !dlg.open) return;
+      const rect = dlg.getBoundingClientRect();
+      const inDialog = (
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom
+      );
+      if(!inDialog){ dlg.close(); }
+    });
+
+    // Close on Escape (most browsers do this by default, keep explicit for clarity)
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){ closeLightbox(); }
+    });
+
 
     function showDevlog(el){
       const key = (typeof el === 'string') ? el : el.getAttribute('data-key');

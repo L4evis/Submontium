@@ -187,7 +187,7 @@
               data-caption="Lighting validation, single practical light source and glass response."
               alt="DevLog image 1"
               loading="lazy"
-              onclick="openLightbox(this)"
+              onclick="openLightbox(event, this)"
             >
             <figcaption>Caption #1</figcaption>
           </figure>
@@ -199,7 +199,7 @@
               data-caption=Interaction scale test, light source as focal point."
               alt="DevLog image 2"
               loading="lazy"
-              onclick="openLightbox(this)"
+              onclick="openLightbox(event, this)"
             >
             <figcaption>Caption #2</figcaption>
           </figure>
@@ -225,35 +225,39 @@
          </p>
 
          <p>
-        This process confirmed which foundations are stable - and which still demand attention - before the project expands further.
+        This process confirmed which foundations are stable - and which still demand attention - before expanding the interior space further.
         </p>
       `
     };
 
     
     // --- DevLog image lightbox ---
-    function openLightbox(imgEl){
-      const dlg = document.getElementById('lb');
-      const big = imgEl.getAttribute('data-full') || imgEl.src;
-      const caption = imgEl.getAttribute('data-caption') || imgEl.alt || '';
-      const title = imgEl.getAttribute('data-title') || 'Preview';
-
-      const lbImg = document.getElementById('lb-img');
-      const lbCap = document.getElementById('lb-caption');
-      const lbTitle = document.getElementById('lb-title');
-
-      lbImg.src = big;
-      lbImg.alt = caption || 'Preview';
-      lbCap.textContent = caption;
-      lbTitle.textContent = title;
-
-      if(typeof dlg.showModal === 'function'){
-        dlg.showModal();
-      }else{
-        // Fallback: open image in new tab if <dialog> unsupported
-        window.open(big, '_blank', 'noopener');
-      }
+    function openLightbox(e, imgEl){
+      if(e){
+    e.preventDefault();
+    e.stopPropagation();
     }
+
+    const dlg = document.getElementById('lb');
+    const big = imgEl.getAttribute('data-full') || imgEl.src;
+    const caption = imgEl.getAttribute('data-caption') || imgEl.alt || '';
+    const title = imgEl.getAttribute('data-title') || 'Preview';
+
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-caption');
+    const lbTitle = document.getElementById('lb-title');
+
+    lbImg.src = big;
+    lbImg.alt = caption || 'Preview';
+    lbCap.textContent = caption;
+    lbTitle.textContent = title;
+ 
+    if(typeof dlg.showModal === 'function'){
+      dlg.showModal();
+    }else{
+      window.open(big, '_blank', 'noopener');
+    }
+  }
 
     function closeLightbox(){
       const dlg = document.getElementById('lb');

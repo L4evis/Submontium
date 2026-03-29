@@ -33,8 +33,35 @@
         
         .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
         
-        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif;  text-transform: uppercase; letter-spacing: 1px; }
         .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+        .reddit-button {
+        display: inline-flex;
+        align-items: center;
+    	background-color: #ff4500; /* Oficiální Reddit oranžová */
+   	 color: white;
+    	padding: 12px 24px;
+    	border-radius: 4px;
+   	 text-decoration: none;
+   	 font-family: 'Oswald', sans-serif;
+   	 text-transform: uppercase;
+   	 letter-spacing: 1px;
+   	 font-weight: bold;
+   	 margin: 2rem 0;
+   	 transition: transform 0.3s, box-shadow 0.3s;
+	}
+
+	.reddit-button:hover {
+   	 transform: translateY(-3px);
+   	 box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+   	 color: white;
+	}
+
+	.reddit-icon {
+    	margin-right: 10px;
+   	 width: 20px;
+   	 height: 20px;
+}
 
         footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
     </style>
@@ -63,7 +90,10 @@
         <p>Burdened by the immense pressure of not letting down my single, highly perceptive upvoter, I have no choice but to press on. The Unreal Engine coursework at Rebelway starts soon...</p>
 
         <p>The first transmission was a success I think.. </p>
-
+<a href="https://www.reddit.com/r/IndieGaming/comments/1s6xox4/im_a_solo_dev_building_an_alternative_19thcentury/" target="_blank" class="reddit-button">
+    <svg class="reddit-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M16.5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM18.8 13.1a2.3 2.3 0 0 0-1.7-2.1c.1-.3.1-.6.1-.9 0-2.3-2.2-4.1-5-4.1-.3 0-.6 0-.8.1l1.3-4.1 3.5.8a1.2 1.2 0 1 0 .2-.8l-3.9-.9c-.2 0-.4.1-.5.3l-1.5 4.8c-2.4.2-4.3 2-4.3 4 0 .3 0 .6.1.9a2.3 2.3 0 0 0-3.3 2.1c0 .8.4 1.5 1 1.9-.1.3-.1.6-.1.9 0 2.3 2.5 4.1 5.7 4.1s5.7-1.8 5.7-4.1c0-.3 0-.6-.1-.9a2.3 2.3 0 0 0 1.4-3.1Zm-10.2 1.4a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Zm4.8 0a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Zm-4.2 2.5c-.1 0-.3-.1-.3-.2a3.8 3.8 0 0 1 5 0 .3.3 0 1 1-.4.4 3.2 3.2 0 0 0-4.1 0h-.2Z"/></svg>
+    Join the discussion on Reddit</a>
+<p></p>
         <a href="devlog.html" class="back-link">&larr; Back to Devlog Index</a>
     </main>
 

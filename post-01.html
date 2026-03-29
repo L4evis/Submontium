@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Základní styly stejné jako na hlavní stránce */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-ivory); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* Styly specifické pro článek */
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .post-date { color: var(--electric-blue); font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
+        .article-container h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--brass); margin-bottom: 2rem; line-height: 1.2; }
+        .article-container h2 { font-family: 'Oswald', sans-serif; color: var(--text-ivory); margin: 2rem 0 1rem 0; }
+        .article-container p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        
+        .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
+        
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+
+        footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <span class="post-date">DEVLOG #01 | MARCH 2026</span>
+        <h1>Forging a New Kind of Power in Karlovy Vary</h1>
+        
+        <p>Welcome to the very first development log for Submontium. Building a first-person RPG as a solo developer is a massive undertaking, but the vision for this world has never been clearer. We are stepping into the early 19th century, right into the heart of Karlovy Vary. But not the spa town you might know from the history books.</p>
+
+        <img src="images/library.webp" alt="Submontium central apparatus" class="article-image">
+
+        <h2>Science, Not Sorcery</h2>
+        <p>A core pillar of Submontium is its approach to abilities and interactions. You won't find traditional magic here. There are no fireballs to cast or lightning bolts to summon from the sky with a flick of a wand. Instead, the focus is entirely grounded in science, chemistry, and the utilization of raw elements.</p>
+        
+        <p>The power comes from understanding and manipulating the environment and the unique properties of the local springs. It's about harnessing electricity through early, experimental apparatuses and utilizing steam power to solve problems and survive.</p>
+
+        <h2>The Road Ahead</h2>
+        <p>The foundation is being laid in Unreal Engine, and the next few months are going to be critical for the visual and technical fidelity of the game. In about six weeks, I will be diving into an intensive Intro to Unreal Engine course over at Rebelway to push the cinematic quality and environmental storytelling a little bit further.</p>
+
+        <p>Additionally, because the manipulation of elements and steam is so crucial to the gameplay, I have set a strict milestone to learn and integrate Houdini into the workflow over the next three months. This will allow for the creation of complex, realistic simulations for the steam, water, and chemical reactions that drive the core mechanics of Submontium.</p>
+
+        <p>Stay tuned. The springs are just starting to heat up.</p>
+
+        <a href="index.html" class="back-link">&larr; Return to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Submontium. All rights reserved.</p>
+        <script data-goatcounter="https://submontium.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    </footer>
+
+</body>
+</html>

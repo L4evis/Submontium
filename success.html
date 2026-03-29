@@ -1,22 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Thanks — Submontium</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transmission Successful | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0b10;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-ivory); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Zajistí, že stránka zabere celou výšku okna */
+        }
+
+        /* --- Stejná hlavička jako na Devlogu --- */
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* --- Vycentrování obsahu --- */
+        main {
+            flex: 1; /* Roztáhne hlavní část, aby zaplnila zbytek místa */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        /* --- Styly pro děkovací zprávu --- */
+        .success-msg h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--electric-blue);
+            text-shadow: var(--glow);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .success-msg p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* --- Tlačítko Zpět --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--brass);
+            color: var(--brass);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--brass);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(205, 127, 50, 0.4);
+        }
+    </style>
 </head>
 <body>
-  <header><div class="wrap brand"><h1>Submontium — message sent</h1></div></header>
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <h2>Thanks for reaching out.</h2>
-        <p class="lede">We received your message and will get back to you soon.</p>
-        <p><a class="btn" href="./index.html">Back to Home</a></p>
-      </div>
-    </section>
-  </main>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="devlog.html">Devlog</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="success-msg">
+            <h1>Transmission Successful</h1>
+            <p>Your message has been safely routed through the copper networks. I will get back to you as soon as possible.</p>
+            <a href="index.html" class="btn">Return to the Springs</a>
+        </div>
+    </main>
+
 </body>
 </html>
 

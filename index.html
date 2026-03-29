@@ -71,25 +71,44 @@
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            
+
+            background-image: url('images/library.webp'); 
+            /* Zajistí, že obrázek pokryje celou plochu a nedeformuje se */
+            background-size: cover; 
+            /* Vycentruje obrázek */
+            background-position: center; 
+            /* Obrázek se nebude opakovat */
+            background-repeat: no-repeat; 
+            /* Fixní pozadí pro "parallax" efekt (volitelné, vypadá to cool) */
+            background-attachment: fixed; 
+
+            /* Přidáme jemný tmavý překryv (overlay), aby byl text VŽDY čitelný */
+            position: relative;
             border-bottom: 1px solid rgba(205, 127, 50, 0.2);
         }
 
+         .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Černá barva s 60% průhledností. Uprav podle potřeby. */
+            background-color: rgba(10, 11, 16, 0.6); 
+            z-index: 1;
+        }
+
+        .hero h1, .hero p, .hero .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Původní styly pro h1 a p zůstávají */
         .hero h1 {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(2.5rem, 8vw, 5rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-        }
-
-        .hero h1 span { color: var(--electric-blue); text-shadow: var(--glow); }
-
-        .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin-bottom: 2.5rem;
         }
 
         .btn {

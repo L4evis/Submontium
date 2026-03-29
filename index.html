@@ -1,84 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=devicewidth,initial-scale=1">
-  <title>Submontium</title>
-  <meta name="description" content="A First-Person Strategic RPG of Historical Alchemy.">
-  <link rel="icon" href="./media/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submontium | Science-based RPG in 19th Century Karlovy Vary</title>
+    <meta name="description" content="Explore a unique science-based RPG set in an alternative 19th-century Karlovy Vary. No magic, only the power of science and the springs.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-ivory);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: var(--brass);
+            text-transform: uppercase;
+            border-left: 3px solid var(--electric-blue);
+            padding-left: 15px;
+        }
+
+        nav a {
+            color: var(--text-ivory);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--electric-blue); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            border-bottom: 1px solid rgba(205, 127, 50, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span { color: var(--electric-blue); text-shadow: var(--glow); }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--brass);
+            color: var(--brass);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--brass);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(205, 127, 50, 0.4);
+        }
+
+        /* --- Features Section --- */
+        .section { padding: 8rem 10%; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--electric-blue);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card h3 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--brass);
+            text-transform: uppercase;
+        }
+
+        /* --- Contact Form --- */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border: 1px solid rgba(205, 127, 50, 0.3);
+        }
+
+        form label { display: block; margin-bottom: 0.5rem; color: var(--text-dim); }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #0a0b10;
+            border: 1px solid #333;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-family: inherit;
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 10%;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        /* Helper */
+        .accent { color: var(--electric-blue); }
+    </style>
 </head>
 <body>
-<header>
-  <div class="wrap brand">
-    <img class="logo" src="./media/logo.svg" alt="Submontium logo" width="44" height="44" onerror="this.onerror=null;this.src='./media/logo.png'">
-    <div>
-      <h1>Submontium <span>- strategic RPG of historical alchemy</span></h1>
-      <div class="meta">
-        <span>17th century • First-person • No combat • PC</span>
-      </div>
-    </div>
-    <nav>
-      <a href="./index.html" aria-current="page">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./devlog.html">DevLog</a>
-      <a href="https://submontium.games" rel="noopener">Studio</a>
-    </nav>
-  </div>
-</header>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <h2>Master alchemy - not weapons.</h2>
-      <p class="lede">A first-person strategic RPG set in early 17th-century Karlovy Vary. Knowledge, scarcity, and precision shape your path.</p>
-      <div style="display:flex;gap:12px;margin-top:12px">
-        <a class="btn" href="./about.html">Learn more</a>
-        <a class="btn ghost" href="#" aria-disabled="true">Wishlist (soon)</a>
-      </div>
-    </div>
-  </section>
+    <header>
+        <div class="logo">Submontium</div>
+        <nav>
+            <a href="#about">The Game</a>
+            <a href="#devlog">Devlog</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <section>
-    <div class="wrap grid">
-      <article class="card">
-        <h3>Design Pillars</h3>
-        <ul>
-          <li><strong>Science over confrontation</strong> - no combat; progress through knowledge, tools, reactions, and experimentation.</li>
-          <li><strong>Playable alchemy</strong> - distillation, calcination, dissolution, crystallisation; real procedures, systemic outcomes.</li>
-          <li><strong>A real city as your board</strong> - guilds, scarcity, and political pressure in 17th-century Karlovy Vary.</li>
-        </ul>
-      </article>
+    <section class="hero">
+        <h1>Science is the <br><span>new Magic</span></h1>
+        <p>A first-person RPG set in the alternative 19th-century Karlovy Vary. Master the elements, harness electricity, and survive the steam-powered spa.</p>
+        <a href="#contact" class="btn">Explore the Devlog</a>
+    </section>
 
-      <article class="card">
-        <h3>Scope</h3>
-        <ul>
-            <li>First-person systemic RPG (no combat)</li>
-            <li>Engine: Unreal Engine 5.6</li>
-            <li>Platform: PC (Steam)</li>
-            <li>Status: In development</li>
-        </ul>
-      </article>
+    <section id="about" class="section">
+        <h2 style="font-family: 'Oswald'; font-size: 2.5rem; text-align: center;">THE STEAM-SPA EXPERIENCE</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Scientific Mastery</h3>
+                <p>No fireballs or lightning bolts. Use real chemistry, primitive electricity, and early medical prototypes to overcome challenges.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--brass);">
+                <h3>Historic Vary</h3>
+                <p>Explore a meticulously crafted 19th-century Karlovy Vary, enhanced with brass machinery and mysterious energy from the hot springs.</p>
+            </div>
+            <div class="card">
+                <h3>Solo Developer</h3>
+                <p>A deeply personal project focused on atmosphere and lore, built from the ground up in Unreal Engine 5.</p>
+            </div>
+        </div>
+    </section>
 
-      <article class="card">
-        <h3>Follow the Studio</h3>
-        <p>Factsheet, press kit, and development notes.</p>
-        <a class="btn" href="https://submontium.games">Submontium Games →</a>
-      </article>
-    </div>
-  </section>
+    <section id="contact" class="section">
+        <div class="contact-container">
+            <h2 style="font-family: 'Oswald'; margin-bottom: 2rem;">GET IN TOUCH</h2>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p style="display:none">
+                    <label>Don’t fill this out: <input name="bot-field"></label>
+                </p>
+                
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
 
-</main>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-<footer>
-  <div class="wrap">
-    <small>© 2025-2026 Submontium. All rights reserved.</small><br>
-    <small>We count visits with GoatCounter — open-source and privacy-minded.
-  No cookies, no tracking, just simple stats.</small>
-  </div>
-</footer>
-<script data-goatcounter="https://submontium.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+                <label for="message">Message</label>
+                <textarea id="message" name="msg" rows="5" required></textarea>
+
+                <button type="submit" class="btn" style="width: 100%;">Transmit Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025-2026 Submontium. All rights reserved.</p>
+        <p>No cookies, no tracking. Just simple stats with <a href="https://goatcounter.com" style="color: var(--electric-blue);">GoatCounter</a>.</p>
+    </footer>
+
+    <script data-goatcounter="https://submontium.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

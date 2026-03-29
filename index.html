@@ -81,15 +81,14 @@
 
             /* Přidáme jemný tmavý překryv (overlay), aby byl text VŽDY čitelný */
             position: relative;
-            border-bottom: 1px solid rgba(205, 127, 50, 0.2);
+            border-bottom: 1px solid rgba(205, 127, 50, 0.6);
         }
 
          .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Černá barva s 60% průhledností. Uprav podle potřeby. */
-            background-color: rgba(10, 11, 16, 0.3); 
+            background-color: rgba(10, 11, 16, 0.7); 
             z-index: 1;
         }
 
@@ -97,8 +96,10 @@
             font-family: 'Oswald', sans-serif;
             font-size: clamp(2.5rem, 8vw, 4rem);
             line-height: 1.1;
+	    color: var(--text-ivory);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+	    z-index: 1;	
         }
 
         .hero h1 span { color: var(--electric-blue); text-shadow: var(--glow); }
@@ -106,8 +107,9 @@
         .hero p {
          max-width: 600px;
          font-size: 1.1rem;
-         color: var(--text-dim);
-         margin-bottom: 10rem; /* Zvětšeno z 2.5rem na 5rem - odtlačí tlačítko níž */
+         color: var(--text-ivory);
+	 margin-top: 5rem;
+         margin-bottom: 5rem; /* Zvětšeno z 2.5rem na 5rem - odtlačí tlačítko níž */
          position: relative;
          z-index: 2;
         }
@@ -205,7 +207,7 @@
         <nav>
             <a href="#about">The Game</a>
             <a href="devlog.html">Devlog</a>
-            <a href="#contact">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -219,8 +221,8 @@
         <h2 style="font-family: 'Oswald'; font-size: 2.5rem; text-align: center;">THE STEAM-SPA EXPERIENCE</h2>
         <div class="grid">
             <div class="card">
-                <h3>Scientific Mastery</h3>
-                <p>No fireballs or lightning bolts. Use real chemistry, primitive electricity, and early medical prototypes to overcome challenges.</p>
+                <h3>The Final Frontier</h3>
+                <p>These are the quests for scientific understanding. A solo mission: to explore this strange, alternative 19th-century world. To seek out new elements and hidden natural laws. To boldly go where no bon vivant has gone before.</p>
             </div>
             <div class="card" style="border-top-color: var(--brass);">
                 <h3>Historic Vary</h3>
@@ -236,8 +238,13 @@
     <section id="contact" class="section">
         <div class="contact-container">
             <h2 style="font-family: 'Oswald'; margin-bottom: 2rem;">GET IN TOUCH</h2>
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+           <form name="contact" method="POST" action="/success.html" 
+                  data-netlify="true" netlify-honeypot="bot-field"
+                  enctype="application/x-www-form-urlencoded">
+                
                 <input type="hidden" name="form-name" value="contact">
+                <input type="hidden" name="subject" value="Submontium.com contact form">
+                
                 <p style="display:none">
                     <label>Don’t fill this out: <input name="bot-field"></label>
                 </p>
@@ -248,8 +255,8 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="msg" rows="5" required></textarea>
+                <label for="msg">Message</label>
+                <textarea id="msg" name="message" rows="5" required></textarea>
 
                 <button type="submit" class="btn" style="width: 100%;">Transmit Message</button>
             </form>

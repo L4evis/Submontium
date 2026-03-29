@@ -74,13 +74,9 @@
             
 
             background-image: url('images/library.webp'); 
-            /* Zajistí, že obrázek pokryje celou plochu a nedeformuje se */
             background-size: cover; 
-            /* Vycentruje obrázek */
             background-position: center; 
-            /* Obrázek se nebude opakovat */
             background-repeat: no-repeat; 
-            /* Fixní pozadí pro "parallax" efekt (volitelné, vypadá to cool) */
             background-attachment: fixed; 
 
             /* Přidáme jemný tmavý překryv (overlay), aby byl text VŽDY čitelný */
@@ -93,22 +89,27 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             /* Černá barva s 60% průhledností. Uprav podle potřeby. */
-            background-color: rgba(10, 11, 16, 0.6); 
+            background-color: rgba(10, 11, 16, 0.3); 
             z-index: 1;
         }
 
-        .hero h1, .hero p, .hero .btn {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Původní styly pro h1 a p zůstávají */
-        .hero h1 {
+       .hero h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+        }
+
+        .hero h1 span { color: var(--electric-blue); text-shadow: var(--glow); }
+	 
+        .hero p {
+         max-width: 600px;
+         font-size: 1.1rem;
+         color: var(--text-dim);
+         margin-bottom: 10rem; /* Zvětšeno z 2.5rem na 5rem - odtlačí tlačítko níž */
+         position: relative;
+         z-index: 2;
         }
 
         .btn {
@@ -122,6 +123,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            position: relative;
+            z-index: 2;
         }
 
         .btn:hover {
@@ -207,7 +210,7 @@
     </header>
 
     <section class="hero">
-        <h1>Science is the <br><span>new Magic</span></h1>
+        <h1>Science is the<br><span>New Magic</span></h1>
         <p>A first-person RPG set in the alternative 19th-century Karlovy Vary. Master the elements, harness electricity, and survive the steam-powered spa.</p>
         <a href="#contact" class="btn">Explore the Devlog</a>
     </section>

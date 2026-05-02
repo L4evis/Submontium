@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Základní styly stejné jako na hlavní stránce */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-ivory); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* Styly specifické pro článek */
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .post-date { color: var(--electric-blue); font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
+        .article-container h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--brass); margin-bottom: 2rem; line-height: 1.2; }
+        .article-container h2 { font-family: 'Oswald', sans-serif; color: var(--text-ivory); margin: 2rem 0 1rem 0; }
+        .article-container p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        
+        .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
+        
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+
+        footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <span class="post-date">DEVLOG #03 | MARCH 2026</span>
+        <h1>Gruss aus Karlovy Vary: Finding Method in the Houdini Madness</h1>
+        
+        <p>I have decided to write a short piece about my transition from Blender to Houdini as my primary modeling tool. To be honest, I never considered myself a seasoned Blender veteran; there are many corners of that software I haven’t explored, but it was always enough to model everything I needed. I was briefly fascinated by Geometry Nodes, but I realized that without a solid mathematical foundation, one often doesn't truly understand the underlying logic. For instance, accessing and modifying two specific vertices on an edge remained a task I struggle with to this day.</p>
+
+        <p>The real turning point came while I was modeling a half-timbered house (Fachwerkhaus). I spent a month meticulously building the blocks, only to realize upon exporting to Unreal Engine that the house was far too small-despite the 2.7-meter floor height appearing more than sufficient during the modeling process. I still love Blender-it was my gateway into 3D-but for my current needs, it is no longer the king.</p>
+        
+        <p>The first thing you hear about Houdini is that the learning curve is extremely steep. I’ve been learning it for about two months now. I don’t need to perform "magic" with complex FX yet; I am working strictly within SOPs (Surface Operators)-in other words, pure geometry. The most important lesson I’ve learned so far is that you only need to master a handful of nodes to get started.</p>
+
+        <p>It begins with basic primitives (Box, Sphere, Tube) or generators like Add, Circle, and Line. Then come the editing tools: PolyExtrude and PolyBevel. I would like to emphasize that it’s not just about knowing these nodes exist, but truly understanding their parameters.</p>
+
+        <p>For example, if you want to create a quarter circle: you could take a default Circle and cut it from the side and bottom using a Clip node. Or, you can look closer at the Circle node itself and discover that by setting the Arc Type to "Open Arc" and the Arc Angle to 0–90 degrees, you get the result instantly. I expect to encounter many more of these "wow" moments. If you want to avoid feeling like a neanderthal, it simply pays off to know your nodes inside out.</p>
+
+        <p>Understanding Groups is where the real magic happens. By this, I don't mean manually selecting points with a mouse, but learning how to procedurally define edges or points using Group Create, Group Expression, and Group Promote. This leads me indirectly to VEX. <p>The website <a href="https://tokeru.com/cgwiki/JoyOfVex.html" target="_blank">cgwiki / Joy of Vex</a> is an incredible resource.</p> I owe the author a huge debt of gratitude; for me, written documentation is far easier to digest and saves a tremendous amount of time.</p>
+
+	<p>It’s funny-when I first started with Houdini, I thought it wasn’t suited for detailed hard-surface modeling. I mostly saw examples of coarse topology. So, I’m attaching an image to prove that it can be done! :)</p>
+
+
+        <img src="images/corinthian.webp" alt="Submontium Corinthian Column" class="article-image">
+
+
+        <a href="devlog.html" class="back-link">&larr; Back to Devlog Index</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Submontium. All rights reserved.</p>
+        <script data-goatcounter="https://submontium.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    </footer>
+
+</body>
+</html>

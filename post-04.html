@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Základní styly stejné jako na hlavní stránce */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-ivory); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* Styly specifické pro článek */
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .post-date { color: var(--electric-blue); font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
+        .article-container h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--brass); margin-bottom: 2rem; line-height: 1.2; }
+        .article-container h2 { font-family: 'Oswald', sans-serif; color: var(--text-ivory); margin: 2rem 0 1rem 0; }
+        .article-container p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        
+        /* Přidané styly pro odrážky (seznam vlastností) */
+        .article-container ul { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; padding-left: 1.5rem; }
+        .article-container li { margin-bottom: 0.5rem; }
+        .article-container li strong { color: var(--text-ivory); }
+        
+        .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
+        
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+
+        footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <span class="post-date">DEVLOG #04 | MAY 18, 2026</span>
+        <h1>The Science of Submontium</h1>
+        
+        <p>After some time, I’ve decided to write a brief post about <em>why</em> Submontium. First, I’d like to point out that Submontium is a theoretical element that fits perfectly into the game's setting. While it is fiction, it rests on the very solid foundations of real nuclear physics.</p>
+
+        <p>The name comes from the Latin <em>Sub</em> (under) and <em>Mons</em> (mountain). The game is set around the years 1895&ndash;1900. In the vicinity of Karlovy Vary, there is a mountain range called the Ore Mountains (Krušné hory), at the foot of which a meteorite containing a metal of entirely unique properties crashed in ancient times. Since we are already in the 21st century, I can afford to reveal a bit more about its closely guarded chemical background.</p>
+        
+        <p><strong>Submontium (symbol St)</strong> has an atomic number of 126. It is located in the eighth period of the periodic table and belongs to the so-called superactinides on the Island of Stability. Its electron configuration is [Og] 5g<sup>2</sup> 6f<sup>3</sup> 7d<sup>1</sup> 8s<sup>2</sup> 8p<sup>1</sup>. Yes, it opens the hyper-complex g-orbital.</p>
+
+        <h2>Physical Properties</h2>
+        <ul>
+            <li><strong>Density:</strong> Extremely high (~25&ndash;30 g/cm&sup3;).</li>
+            <li><strong>State:</strong> Solid metal at room temperature.</li>
+            <li><strong>Appearance:</strong> Metallic luster, silvery-grey with a slight, unnatural bluish tint.</li>
+            <li><strong>Melting Point:</strong> 300&ndash;600 &deg;C.</li>
+            <li><strong>Hardness:</strong> Brittle.</li>
+            <li><strong>Radiation & Emission:</strong> A strong alpha emitter with a long half-life. It reliably ionizes the surrounding air, causing a faint bluish glow around the sample itself.</li>
+            <li><strong>Magnetism:</strong> Strongly paramagnetic.</li>
+            <li><strong>Crystal Structure:</strong> Hexagonally complex crystal lattice with exceptionally high density.</li>
+        </ul>
+
+        <h2>Chemical Reactivity</h2>
+        <ul>
+            <li><strong>Oxidation States:</strong> Typically +3, +4, +5, +6, exceptionally up to +8. Thanks to its active 5g, 6f, and 7d electrons, it possesses extremely rich chemistry.</li>
+            <li><strong>Reactivity:</strong> Moderately reactive. Relativistic effects acting on the 8s/8p electrons make it chemically more stable than lighter superactinides.</li>
+            <li><strong>Compounds:</strong> Forms oxides (StO<sub>2</sub>, StO<sub>3</sub>), halides (e.g., gaseous StF<sub>6</sub>, or StCl<sub>3</sub> &middot; 6H<sub>2</sub>O), and carbides (complex salts like StWC<sub>2</sub>). Its chemistry resembles a combination of actinides and tungsten or uranium, but with a specific "g-orbital twist".</li>
+            <li><strong>Reaction with Water:</strong> Likely a violent reaction producing hydroxide and releasing hydrogen gas, similar to classical actinides.</li>
+            <li><strong>Color of Compounds:</strong> A highly unique property. Due to the 5g electrons, it forms compounds with unusual, exotic colors, most often purple, turquoise, or pearlescent.</li>
+        </ul>
+
+        <a href="devlog.html" class="back-link">&larr; Back to Devlog Index</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Submontium. All rights reserved.</p>
+        <script data-goatcounter="https://submontium.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Základní styly stejné jako na hlavní stránce */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-ivory); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* Styly specifické pro článek */
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .post-date { color: var(--electric-blue); font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
+        .article-container h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--brass); margin-bottom: 2rem; line-height: 1.2; }
+        .article-container h2 { font-family: 'Oswald', sans-serif; color: var(--text-ivory); margin: 2rem 0 1rem 0; }
+        .article-container p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        
+        .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
+        
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+
+        footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <span class="post-date">DEVLOG #05 | JULY 07 2026</span>
+        <h1>From Daggerfall to Dune 2: Why I Scrapped My RPG to Build an RTS</h1>
+        
+        <p>Hey everyone, checking in after quite some time.</p>
+
+        <p>I’ve made the decision to drop the "Intro to Unreal Engine" course by Rebelway. While I'll keep some of my reasons to myself, a major factor was simply a lack of time. Beyond that, I found some of the material to be a bit outdated - many of the workflows they covered can easily be found on YouTube, often explained even better. I completely respect that the Rebelway team are absolute masters when it comes to Houdini; however, based on this experience, I’m not really inclined to find out if their other courses would be a better fit. Being a solo game developer is already a pretty extreme undertaking in the indie scene, and time is by far my most precious commodity.</p>
+        
+        <p>The next big news is a pivot away from my originally planned RPG genre. As someone who grew up on Daggerfall and similar classics, I would absolutely love to create a game like that, but realistically, I just don't have the resources. Over time, my vision had crystallized into something more narrative-driven, but writing extensive dialogues and building deep lore from scratch is a luxury I can't afford right now. Who knows, maybe I'll return to the RPG genre someday.</p>
+
+        <p>Thinking it over further, I kept going back to my childhood and the game that captivated me more than anything else: the absolute masterpiece that is Dune 2. I have immense respect for the people who created that gem, and I want to pay homage to them by attempting something in a similar vein.</p>
+
+        <p>For the past few months, I've been battling it out in C++. Thanks to Tom Looman's course, I can safely say I now have a fully functional core for a true RTS game. There's still a massive amount of development ahead of me, which is why I've set my target for a playable Vertical Slice for around the summer of 2028. Moving forward, I definitely hope to share my progress with you all here on the website at more regular intervals.</p>
+
+	
+       	<img src="images/Image_RTS0607.webp" alt="Submontium Corinthian Column" class="article-image">
+
+
+        <a href="devlog.html" class="back-link">&larr; Back to Devlog Index</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Submontium. All rights reserved.</p>
+        <script data-goatcounter="https://submontium.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    </footer>
+
+</body>
+</html>

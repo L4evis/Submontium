@@ -14,29 +14,38 @@ async function renderGraph() {
         startDate.setDate(today.getDate() - 364); 
 
         let lastMonth = -1;
-        let weekIndex = 0; // Sleduje, ve kterém sloupci (týdnu) se zrovna nacházíme
+        let lastYear = -1; // Přidáno sledování roku
+        let weekIndex = 0; 
         let dayCounter = 0; 
 
         for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
             
-            // --- Logika pro měsíce ---
-            // Kontrolujeme pouze první den v každém sloupci
+            // --- Logika pro měsíce a roky ---
             if (dayCounter % 7 === 0) {
                 const currentMonth = d.getMonth();
+                const currentYear = d.getFullYear(); // Zjištění aktuálního roku
                 
-                // Pokud je to nový měsíc, vygenerujeme popisek
                 if (currentMonth !== lastMonth) {
                     const monthLabel = document.createElement('div');
                     monthLabel.classList.add('month-label');
-                    monthLabel.textContent = monthNames[currentMonth];
                     
-                    // Posun štítku = počet dosavadních sloupců * 16px (12px čtverec + 4px mezera)
+                    // Zobrazíme rok, pokud je to první štítek, nebo pokud se rok právě změnil (Leden)
+                    if (lastYear === -1 || currentYear !== lastYear) {
+                        monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+                        // Zvýraznění roku rezavou barvou z tvého tématu
+                        monthLabel.style.color = 'var(--brass)'; 
+                        monthLabel.style.fontWeight = 'bold';
+                    } else {
+                        monthLabel.textContent = monthNames[currentMonth];
+                    }
+                    
                     monthLabel.style.left = `${weekIndex * 16}px`;
                     monthsContainer.appendChild(monthLabel);
                     
                     lastMonth = currentMonth;
+                    lastYear = currentYear; // Uložení roku pro další kontrolu
                 }
-                weekIndex++; // Dokončili jsme sloupec, posuneme index
+                weekIndex++; 
             }
             
             // --- Logika pro dny (čtverečky) ---

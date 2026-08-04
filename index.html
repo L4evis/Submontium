@@ -166,12 +166,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 4rem;
-            padding: 2rem;
+            
+            /* 1. Zkrátí šířku přesně na velikost vnitřního obsahu (grafu) */
+            width: fit-content; 
+            
+            /* 2. 'auto' na levé a pravé straně zajistí perfektní vycentrování na střed */
+            margin: 4rem auto 0 auto; 
+            
+            /* 3. Trochu víc místa uvnitř boxu, aby graf mohl "dýchat" */
+            padding: 2rem 3rem; 
+            
             background: var(--card-bg);
-            border-top: 1px solid var(--electric-blue);
-            border-bottom: 1px solid var(--electric-blue);
-            overflow-x: auto; /* Pro mobily, aby se graf dal posouvat */
+            
+            border: 1px solid var(--electric-blue); /* Rámeček kolem dokola */
+            border-radius: 8px; /* Jemně zakulacené rohy */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Lehký stín, aby karta vystoupila do popředí */
+            
+            overflow-x: auto; 
         }
         
         .dev-activity h3 {
@@ -224,13 +235,6 @@
         .days-labels span:nth-child(2) { top: 48px; } /* Wed - 4. řádek */
         .days-labels span:nth-child(3) { top: 80px; } /* Fri - 6. řádek */
 
-        /* Původní kontejner grafu - odstraň z něj atribut padding! */
-        .graph-container {
-            display: grid;
-            grid-template-rows: repeat(7, 12px); 
-            grid-auto-flow: column; 
-            gap: 4px;
-        }
 
         .graph-container {
             display: grid;

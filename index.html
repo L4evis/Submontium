@@ -180,6 +180,57 @@
             color: var(--brass);
             text-transform: uppercase;
         }
+	/* Obal pro celý graf s popisky */
+        .graph-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        /* Kontejner pro měsíce (relativní pozice pro přesné sázení přes JS) */
+        .months-labels {
+            position: relative;
+            height: 15px;
+            margin-left: 35px; /* Založeno na šířce sloupce se dny */
+        }
+
+        .month-label {
+            position: absolute;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        /* Obal pro dny a mřížku vedle sebe */
+        .graph-body {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Sloupec s popisky dnů */
+        .days-labels {
+            position: relative;
+            width: 25px;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        .days-labels span {
+            position: absolute;
+            line-height: 12px; /* Výška textu odpovídá výšce jednoho čtverečku */
+        }
+
+        /* Mřížka má posun po 16px (12px čtvereček + 4px mezera) */
+        .days-labels span:nth-child(1) { top: 16px; } /* Mon - 2. řádek */
+        .days-labels span:nth-child(2) { top: 48px; } /* Wed - 4. řádek */
+        .days-labels span:nth-child(3) { top: 80px; } /* Fri - 6. řádek */
+
+        /* Původní kontejner grafu - odstraň z něj atribut padding! */
+        .graph-container {
+            display: grid;
+            grid-template-rows: repeat(7, 12px); 
+            grid-auto-flow: column; 
+            gap: 4px;
+        }
 
         .graph-container {
             display: grid;
@@ -295,12 +346,29 @@
 	</div>
    
 	
-       <div class="dev-activity">
+      <!-- Development Activity Graph -->
+        <div class="dev-activity">
             <h3>Development Pulse</h3>
-            <div id="contribution-graph" class="graph-container">
-                <!-- Zde se vykreslí čtverečky přes JS -->
-        </div>
-
+            
+            <div class="graph-wrapper">
+                <!-- Horní lišta pro názvy měsíců -->
+                <div id="months-labels" class="months-labels"></div>
+                
+                <div class="graph-body">
+                    <!-- Levý sloupec pro názvy dnů -->
+                    <div class="days-labels">
+                        <span>Mon</span>
+                        <span>Wed</span>
+                        <span>Fri</span>
+                    </div>
+                    
+                    <!-- Samotná mřížka s commity -->
+                    <div id="contribution-graph" class="graph-container">
+                        <!-- Zde se vykreslí čtverečky přes JS -->
+                    </div>
+                </div>
+            </div>
+            
        </div>
    
     </section>

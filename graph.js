@@ -5,13 +5,41 @@ async function renderGraph() {
         const commitData = await response.json();
 
         const graphContainer = document.getElementById('contribution-graph');
+        const monthsContainer = document.getElementById('months-labels');
+        
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         
         const today = new Date();
         const startDate = new Date(today);
         startDate.setDate(today.getDate() - 364); 
 
+        let lastMonth = -1;
+        let weekIndex = 0; // Sleduje, ve kterém sloupci (týdnu) se zrovna nacházíme
+        let dayCounter = 0; 
+
         for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
             
+            // --- Logika pro měsíce ---
+            // Kontrolujeme pouze první den v každém sloupci
+            if (dayCounter % 7 === 0) {
+                const currentMonth = d.getMonth();
+                
+                // Pokud je to nový měsíc, vygenerujeme popisek
+                if (currentMonth !== lastMonth) {
+                    const monthLabel = document.createElement('div');
+                    monthLabel.classList.add('month-label');
+                    monthLabel.textContent = monthNames[currentMonth];
+                    
+                    // Posun štítku = počet dosavadních sloupců * 16px (12px čtverec + 4px mezera)
+                    monthLabel.style.left = `${weekIndex * 16}px`;
+                    monthsContainer.appendChild(monthLabel);
+                    
+                    lastMonth = currentMonth;
+                }
+                weekIndex++; // Dokončili jsme sloupec, posuneme index
+            }
+            
+            // --- Logika pro dny (čtverečky) ---
             const dateString = d.toISOString().split('T')[0];
             const commits = commitData[dateString] || 0;
 
@@ -34,6 +62,7 @@ async function renderGraph() {
             }
 
             graphContainer.appendChild(square);
+            dayCounter++;
         }
     } catch (error) {
         console.error("Graf commitů se nepodařilo načíst:", error);

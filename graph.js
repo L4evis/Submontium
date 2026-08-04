@@ -31,7 +31,8 @@ async function renderGraph() {
                     
                     // Zobrazíme rok, pokud je to první štítek, nebo pokud se rok právě změnil (Leden)
                     if (lastYear === -1 || currentYear !== lastYear) {
-                        monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+                        monthLabel.innerHTML = `${monthNames[currentMonth]}<span class="year-label">${currentYear}</span>`;
+   			 
                         // Zvýraznění roku rezavou barvou z tvého tématu
                         monthLabel.style.color = 'var(--brass)'; 
                         monthLabel.style.fontWeight = 'bold';

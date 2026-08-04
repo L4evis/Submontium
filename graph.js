@@ -13,8 +13,12 @@ async function renderGraph() {
         const startDate = new Date(today);
         startDate.setDate(today.getDate() - 364); 
 
+        // OPRAVA: Zajištění, že mřížka začíná absolutně vždy v neděli
+        const startDayOfWeek = startDate.getDay(); // 0 = Neděle
+        startDate.setDate(startDate.getDate() - startDayOfWeek);
+
         let lastMonth = -1;
-        let lastYear = -1; // Přidáno sledování roku
+        let lastYear = -1;
         let weekIndex = 0; 
         let dayCounter = 0; 
 
@@ -23,17 +27,14 @@ async function renderGraph() {
             // --- Logika pro měsíce a roky ---
             if (dayCounter % 7 === 0) {
                 const currentMonth = d.getMonth();
-                const currentYear = d.getFullYear(); // Zjištění aktuálního roku
+                const currentYear = d.getFullYear(); 
                 
                 if (currentMonth !== lastMonth) {
                     const monthLabel = document.createElement('div');
                     monthLabel.classList.add('month-label');
                     
-                    // Zobrazíme rok, pokud je to první štítek, nebo pokud se rok právě změnil (Leden)
                     if (lastYear === -1 || currentYear !== lastYear) {
                         monthLabel.innerHTML = `${monthNames[currentMonth]}<span class="year-label">${currentYear}</span>`;
-   			 
-                        // Zvýraznění roku rezavou barvou z tvého tématu
                         monthLabel.style.color = 'var(--brass)'; 
                         monthLabel.style.fontWeight = 'bold';
                     } else {
@@ -44,7 +45,7 @@ async function renderGraph() {
                     monthsContainer.appendChild(monthLabel);
                     
                     lastMonth = currentMonth;
-                    lastYear = currentYear; // Uložení roku pro další kontrolu
+                    lastYear = currentYear; 
                 }
                 weekIndex++; 
             }

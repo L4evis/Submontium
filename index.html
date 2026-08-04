@@ -167,30 +167,40 @@
             flex-direction: column;
             align-items: center;
             
-            /* 1. Zkrátí šířku přesně na velikost vnitřního obsahu (grafu) */
             width: fit-content; 
+            max-width: 100%; /* Přidáno: Box nikdy nepřesáhne šířku obrazovky */
             
-            /* 2. 'auto' na levé a pravé straně zajistí perfektní vycentrování na střed */
             margin: 4rem auto 0 auto; 
-            
-            /* 3. Trochu víc místa uvnitř boxu, aby graf mohl "dýchat" */
             padding: 2rem 3rem; 
             
             background: var(--card-bg);
+            border: 1px solid var(--brass); 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
             
-            border: 1px solid var(--brass); /* Rámeček kolem dokola */
-            border-radius: 8px; /* Jemně zakulacené rohy */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Lehký stín, aby karta vystoupila do popředí */
-            
-            overflow-x: auto; 
+            overflow-x: auto; /* Zaručí horizontální posuvník pro graf */
+        
         }
         
-        .dev-activity h3 {
+       .dev-activity h3 {
             font-family: 'Oswald', sans-serif;
             margin-bottom: 1.5rem;
             color: var(--brass);
             text-transform: uppercase;
         }
+	
+	/* Přidáno: Responzivní úprava pro mobily */
+        @media (max-width: 850px) {
+            .dev-activity {
+                padding: 1.5rem 1rem; /* Na mobilu ubereme obří vnitřní odsazení */
+                align-items: flex-start; /* Zabrání zablokování levé strany při posuvu */
+            }
+            .dev-activity h3 {
+                align-self: center; /* Nadpis i tak zůstane hezky vycentrovaný */
+            }
+        }
+	
+
 	/* Obal pro celý graf s popisky */
         .graph-wrapper {
             display: flex;

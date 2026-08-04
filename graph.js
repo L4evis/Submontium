@@ -58,18 +58,18 @@ async function renderGraph() {
             square.classList.add('day-square');
             square.title = `${commits} commit(s) on ${dateString}`; 
 
-            if (commits === 1) {
-                square.style.backgroundColor = '#005f7a'; 
-            } else if (commits === 2) {
-                square.style.backgroundColor = '#008fb3'; 
-            } else if (commits === 3) {
-                square.style.backgroundColor = '#00a3cc'; 
-            } else if (commits === 4) {
+            // --- Logika pro dny (čtverečky) ---
+            if (commits >= 1 && commits <= 2) {
+                square.style.backgroundColor = '#005f7a'; // Temně modrá
+            } else if (commits >= 3 && commits <= 5) {
+                square.style.backgroundColor = '#00a3cc'; // Střední kyanová
+            } else if (commits >= 6 && commits <= 9) {
                 square.style.backgroundColor = 'var(--electric-blue)'; 
-                square.style.boxShadow = 'var(--glow)'; 
-            } else if (commits >= 5) {
-                square.style.backgroundColor = '#66e4ff'; 
-                square.style.boxShadow = 'var(--glow)'; 
+                square.style.boxShadow = 'var(--glow)'; // Svítivá kyanová
+            } else if (commits >= 10) {
+                // Fáze "Bílý trpaslík" pro masivní aktivitu
+                square.style.backgroundColor = '#ffffff'; 
+                square.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.9)'; 
             }
 
             graphContainer.appendChild(square);

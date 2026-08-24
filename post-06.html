@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog | Submontium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Základní styly stejné jako na hlavní stránce */
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --electric-blue: #00d4ff;
+            --brass: #cd7f32;
+            --text-ivory: #f0ead6;
+            --text-dim: #a0a0a0;
+            --glow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-ivory); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        header { padding: 2rem 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; border-left: 3px solid var(--electric-blue); padding-left: 15px; text-decoration: none; }
+        nav a { color: var(--text-ivory); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav a:hover { color: var(--electric-blue); }
+
+        /* Styly specifické pro článek */
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .post-date { color: var(--electric-blue); font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
+        .article-container h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--brass); margin-bottom: 2rem; line-height: 1.2; }
+        .article-container h2 { font-family: 'Oswald', sans-serif; color: var(--text-ivory); margin: 2rem 0 1rem 0; }
+        .article-container p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        
+        .article-image { width: 100%; border: 1px solid rgba(205, 127, 50, 0.3); margin: 2rem 0; border-radius: 4px; }
+        
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--electric-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: border-color 0.3s; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link:hover { border-bottom: 1px solid var(--electric-blue); }
+
+        footer { padding: 4rem 10%; text-align: center; border-top: 1px solid #222; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Submontium</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <span class="post-date">DEVLOG #06 | AUGUST 24 2026</span>
+        <h1>Mistakes & Lessons Learned</h1>
+        
+        <p>Hello again after a while,</p>
+
+        <p>I often read about developers who have made just about every possible mistake on their journey. I don't know if my Rebelway course can be considered a mistake, but personally, I see it as one. It taught me to value money more and not fall for "juicy" marketing. Looking ahead, I'm guessing these types of courses will have a really hard time given the rise of AI. No, I don't mean generated content. I mean that anyone with the cognitive ability to learn how to use sophisticated tools, like for 3D modeling, will quickly realize that AI isn't just for checking the weather or generating nonsense. It’s a powerful teacher that never gets tired of a question repeated 10 different ways until it finally "clicks" for you. And it's also here, at least a bit, to facilitate and speed up development in areas we don't consider significant enough to waste time on... I know we might weaken our cognitive skills slightly by doing this, but some mental exercises just aren't worth it.</p>
+        
+        <p>A few days ago, the YouTube algorithm led me to Patreon, specifically to IGC Clinic, and I have to say that joining their community was definitely not a mistake. On the contrary, it’s like boarding a ship with a warp drive, the things you'd normally figure out gradually over the years are confirmed and expanded upon here. I was even recently captivated by an article on the neurophysiology of creativity, and it looks like I'll have to somewhat revise what I know and start looking at things from a slightly different perspective. It reminds me of a book introduction, I think it was for an anatomical atlas, where the author basically says that the hardest thing, as easy as it may seem, is seeing what is hidden right in front of our eyes.</p>
+
+        <p>On a solo journey, your own personal progress is probably the most beautiful part. And it's almost a bit spooky sometimes that you eventually arrive at the same thoughts about dopamine as someone on the other side of the planet.</p>
+
+        <p>Anyway, I've made some progress on my prototype. I'm currently working on a 3D model of a Scout unit in Blender, and maybe I'll move on soon and get to visual effects in Houdini. And I swear, I'll probably leave at least the buildings entirely up to Houdini, because I've already spent 14 days on the Scout. And I'm still not done (currently reducing the polycount).</p>
+
+	
+       	<img src="images/scout.webp" alt="Submontium Scout" class="article-image">
+
+
+        <a href="devlog.html" class="back-link">&larr; Back to Devlog Index</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Submontium. All rights reserved.</p>
+        <script data-goatcounter="https://submontium.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    </footer>
+
+</body>
+</html>

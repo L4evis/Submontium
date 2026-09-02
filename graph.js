@@ -21,6 +21,9 @@ async function renderGraph() {
         let lastYear = -1;
         let weekIndex = 0; 
         let dayCounter = 0; 
+        
+        // NOVÉ: Proměnná pro hlídání pozice posledního vykresleného popisku
+        let lastLabelWeekIndex = -10; 
 
         for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
             
@@ -30,19 +33,26 @@ async function renderGraph() {
                 const currentYear = d.getFullYear(); 
                 
                 if (currentMonth !== lastMonth) {
-                    const monthLabel = document.createElement('div');
-                    monthLabel.classList.add('month-label');
                     
-                    if (lastYear === -1 || currentYear !== lastYear) {
-                        monthLabel.innerHTML = `${monthNames[currentMonth]}<span class="year-label">${currentYear}</span>`;
-                        monthLabel.style.color = 'var(--brass)'; 
-                        monthLabel.style.fontWeight = 'bold';
-                    } else {
-                        monthLabel.textContent = monthNames[currentMonth];
+                    // NOVÉ: Popisek se vykreslí, jen pokud je od minulého vzdálený alespoň 3 týdny
+                    if (weekIndex - lastLabelWeekIndex >= 3 || lastLabelWeekIndex === -10) {
+                        const monthLabel = document.createElement('div');
+                        monthLabel.classList.add('month-label');
+                        
+                        if (lastYear === -1 || currentYear !== lastYear) {
+                            monthLabel.innerHTML = `${monthNames[currentMonth]}<span class="year-label">${currentYear}</span>`;
+                            monthLabel.style.color = 'var(--brass)'; 
+                            monthLabel.style.fontWeight = 'bold';
+                        } else {
+                            monthLabel.textContent = monthNames[currentMonth];
+                        }
+                        
+                        monthLabel.style.left = `${weekIndex * 16}px`;
+                        monthsContainer.appendChild(monthLabel);
+                        
+                        // NOVÉ: Uložení indexu aktuálního popisku
+                        lastLabelWeekIndex = weekIndex; 
                     }
-                    
-                    monthLabel.style.left = `${weekIndex * 16}px`;
-                    monthsContainer.appendChild(monthLabel);
                     
                     lastMonth = currentMonth;
                     lastYear = currentYear; 
@@ -51,8 +61,7 @@ async function renderGraph() {
             }
             
             // --- Logika pro dny (čtverečky) ---
-            // const dateString = d.toISOString().split('T')[0];
-	    const dateString = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            const dateString = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 	
             const commits = commitData[dateString] || 0;
 
@@ -60,7 +69,7 @@ async function renderGraph() {
             square.classList.add('day-square');
             square.title = `${commits} commit(s) on ${dateString}`; 
 
-            // --- Logika pro dny (čtverečky) ---
+            // --- Barvení čtverečků ---
             if (commits >= 1 && commits <= 2) {
                 square.style.backgroundColor = '#005f7a'; // Temně modrá
             } else if (commits >= 3 && commits <= 5) {
@@ -69,7 +78,6 @@ async function renderGraph() {
                 square.style.backgroundColor = 'var(--electric-blue)'; 
                 square.style.boxShadow = 'var(--glow)'; // Svítivá kyanová
             } else if (commits >= 10) {
-                // Fáze "Bílý trpaslík" pro masivní aktivitu
                 square.style.backgroundColor = '#ffffff'; 
                 square.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.9)'; 
             }
